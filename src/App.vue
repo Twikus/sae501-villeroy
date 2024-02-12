@@ -1,47 +1,85 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <img src="/src/assets/logo.png" alt="logo" class="logo">
+    <nav>
+      <ul>
+        <li>
+          <a href="#presentation">PRESENTATION</a>
+        </li>
+        <li>
+          <a href="#project">PROJET</a>
+        </li>
+        <li>
+          <a href="#team">EQUIPE</a>
+        </li>
+        <li>
+          <a href="#news">ACTU</a>
+        </li>
+      </ul>
+    </nav>
   </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <body>
+    <video id="wp-custom-header-video" autoplay="true" loop="true" playsinline="true" width="2000" height="1200" src="https://lunetteriedevilleroy.fr/wp-content/uploads/2023/01/demo2e_1.mp4"></video>
+    <section id="presentation">
+      <h1>Présentation</h1>
+    </section>
+    <section id="project">
+      <h1>Projet</h1>
+    </section>
+    <section id="team">
+      <h1>Equipe</h1>
+    </section>
+    <section id="news">
+      <h1>Actualité</h1>
+    </section>
+  </body>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+  height: 100px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
 
   .logo {
-    margin: 0 2rem 0 0;
+    width: 100px;
+    margin-left: 30px;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+  nav {
+    width: 100%;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      list-style: none;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 23px;
+      }
+    }
+  }
+}
+
+body {
+  h1 {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  video {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    top: 0;
+    transform: none;
+    width: 100%;
   }
 }
 </style>
