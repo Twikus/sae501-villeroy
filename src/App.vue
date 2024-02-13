@@ -19,7 +19,7 @@
     </nav>
   </header>
   <body>
-    <video id="wp-custom-header-video" autoplay="true" loop="true" playsinline="true" width="2000" height="1200" src="https://lunetteriedevilleroy.fr/wp-content/uploads/2023/01/demo2e_1.mp4"></video>
+    <video id="wp-custom-header-video" autoplay loop playsinline muted width="2000" height="1200" src="https://lunetteriedevilleroy.fr/wp-content/uploads/2023/01/demo2e_1.mp4"></video>
     <section id="presentation">
       <h1>Présentation</h1>
     </section>
