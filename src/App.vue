@@ -1,77 +1,288 @@
+<script setup>
+import { ref } from 'vue'
+
+const smoothScroll = (target, duration) => {
+  const targetElement = document.querySelector(target);
+  const targetPosition = targetElement.getBoundingClientRect().top;
+  let startPosition = window.pageYOffset;
+  let startTime = null;
+
+  const animation = (currentTime) => {
+    if (startTime === null) startTime = currentTime;
+    let timeElapsed = currentTime - startTime;
+    let run = easeOutCubic(timeElapsed, startPosition, targetPosition, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  };
+
+  const easeOutCubic = (t, b, c, d) => {
+    t /= d;
+    t--;
+    return c*(t*t*t + 1) + b;
+  };
+
+  requestAnimationFrame(animation);
+};
+
+const smoothScrollTo = ref(smoothScroll);
+
+const form = ref({
+  name: '',
+  email: '',
+  message: ''
+});
+
+const submitForm = () => {
+
+  console.log(form.value);
+};
+</script>
+
 <template>
   <header>
-    <img src="/src/assets/logo.png" alt="logo" class="logo">
     <nav>
       <ul>
         <li>
-          <a href="#presentation">PRESENTATION</a>
+          <a href="#accueil"></a>
         </li>
         <li>
-          <a href="#project">PROJET</a>
+          <a href="#presentation" @click.prevent="smoothScrollTo('#presentation', 1000)">PRÉSENTATION</a>
         </li>
         <li>
-          <a href="#team">EQUIPE</a>
+          <a href="#project" @click.prevent="smoothScrollTo('#project', 1000)">PROJET</a>
         </li>
         <li>
-          <a href="#news">ACTU</a>
+          <a href="#team" @click.prevent="smoothScrollTo('#team', 1000)">ÉQUIPE</a>
+        </li>
+        <li>
+          <a href="#news" @click.prevent="smoothScrollTo('#news', 1000)">OFFRES</a>
+        </li>
+        <li>
+          <a href="#contact" @click.prevent="smoothScrollTo('#contact', 1000)">CONTACT</a>
         </li>
       </ul>
     </nav>
   </header>
   <body>
-    <video id="wp-custom-header-video" autoplay="true" loop="true" playsinline="true" width="2000" height="1200" src="https://lunetteriedevilleroy.fr/wp-content/uploads/2023/01/demo2e_1.mp4"></video>
-    <section id="presentation">
-      <h1>Présentation</h1>
-    </section>
-    <section id="project">
-      <h1>Projet</h1>
-    </section>
-    <section id="team">
-      <h1>Equipe</h1>
-    </section>
-    <section id="news">
-      <h1>Actualité</h1>
-    </section>
+    <div class="bc">
+      <section id="accueil">
+        <h1 class="h1t">Projet <span class="bluespan">3D Mapping</span> <br>Villeroy Industrie</h1>
+      </section>
+      <section id="presentation">
+        <h1 class="title-presentation">
+          Chez SeeIT,<span class="bluespan"> nous sommes passionnés </span>par la technologie et l'innovation.
+        </h1>
+            <h1 class="h1-presentation">
+              Nous sommes un groupe d'étudiants en 3ème année du BUT MMI 
+              (Métiers du Multimédia et de l'Internet)<span class="bluespan"> spécialisés dans le 
+              développement web.  </span>Nous sommes ravis de vous présenter notre
+              <span class="bluespan">projet de modélisation et de réalisation </span>d'une vue 3D de 
+              l'entreprise Villeroy Industrie.
+                <br> <br>
+              Ce qu’on propose aujourd’hui c’est une solution numérique clé en main pour donner vie à ces  
+              entreprises. Une visualisation 3D de leurs locaux, dans leur contexte géographique. 
+              <span class="bluespan">C’est l’occasion idéale pour se créer une identité</span>, être visible en ligne et se faire
+               enfin remarquer. 
+            </h1>
+      </section>
+      <section id="project">
+        
+      </section>
+      <section id="team">
+        <h1>Membres de l'Équipe</h1>
+        <div class="team-members">
+          <div class="team-member">
+            <img src="/src/assets/photos/camel.jpeg" alt="Membre 1">
+            <p>Camélien Tournu <br>Commercial <span class="bluespan">Terrain</span></p>
+          </div>
+          <div class="team-member">
+            <img src="/src/assets/photos/antoine.jpg" alt="Membre 3">
+            <p>Antoine Lauzis <br> <span class="bluespan"> Modélisateur</span> 3D</p>
+          </div>
+          <div class="team-member">
+            <img src="/src/assets/photos/paco.jpeg" alt="Membre 4">
+            <p>Paco Garcia <br> <span class="bluespan">Chef </span>de Projet</p>
+          </div>
+          <div class="team-member">
+            <img src="/src/assets/photos/axel.jpeg" alt="Membre 2">
+            <p>Axel Duquelzar <br> <span class="bluespan">Développeur </span>Full Stack</p>
+          </div>
+        </div>
+      </section>
+      <section id="news">
+        <div class="pricing-cards">
+          <div class="price-card">
+            <div class="price-card-header">
+              <h2 class="price-card-title">Offre Unique</h2>
+              <p class="price-card-description">Repartez avec ce projet, clé en main !</p>
+            </div>
+            <div class="price-card-body">
+              <div class="price-card-price">
+                <h2 class="h2-price">3900€</h2>
+              </div> <br>
+              <ul class="price-card-features">
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Visite et prospection du lieu</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Prise radar des dimensions 3D</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Modélisation de l'entreprise</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Installation du projet</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Livraison et consignes</li>
+              </ul>
+            </div> <br> <br> <br>
+            <a href="#contact" class="a-contact">
+              <button class="price-card-button">Contactez-nous</button>
+            </a>          
+          </div>
+          <div class="price-card">
+            <div class="price-card-header">
+              <h2 class="price-card-title">Offre Abonnement</h2>
+              <p class="price-card-description">Pour la création et le suivi de votre modélisation 3D</p>
+            </div>
+            <div class="price-card-body">
+              <div class="price-card-price">
+                <h2 class="h2-price">2400€ + 25€</h2>
+                <span>/mois</span>
+              </div> 
+              <span class="abo">Abonnement sur 1 an minimum*</span>
+              <br> <br>
+              <ul class="price-card-features">
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Visite et prospection du lieu</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Prise radar des dimensions 3D</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Modélisation de l'entreprise</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Installation du projet</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Livraison et consignes</li>
+                <li><img src="/src/assets/check-icon3.png" alt="Check Icon"> Suivi et Accompagnement</li>
+
+              </ul>
+            </div>
+            <a href="#contact" class="a-contact">
+            <button class="price-card-button">Contactez-nous</button>
+          </a>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h1>Contactez-nous</h1>
+        <div class="contact-container">
+          <div class="contact-info">
+            <p>Email: info@seeit.com</p>
+            <p>Téléphone: +33 1 23 45 67 89</p>
+            <p>Adresse: 4 rue Quebec, 10430, Rosière-Près Troyes</p>
+            <img src="./assets/photos/map.png" alt="map" class="image-map">
+          </div>
+          <form @submit.prevent="submitForm">
+            <div class="form-group">
+              <label for="name">Nom:</label>
+              <input type="text" id="name" v-model="form.name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" v-model="form.email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" v-model="form.message" required></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </div>
   </body>
 </template>
 
 <style lang="scss" scoped>
+
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
 header {
   height: 100px;
   width: 100%;
   background-color: black;
   display: flex;
   align-items: center;
-
-  .logo {
-    width: 100px;
-    margin-left: 30px;
-  }
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-image: url('/src/assets/degrade.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+  padding: 0;
 
   nav {
     width: 100%;
-
+  
     ul {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: flex-end; 
       align-items: center;
       list-style: none;
-
+      margin-right: 40px;
+  
       a {
         color: white;
         text-decoration: none;
-        font-size: 23px;
+        font-family: "gilroy-bold";
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      
+      a:hover {
+        color: #3773ea;
+        transition: all 0.3s ease-in-out;
+      }
+
+      li {
+        margin-left: 20px;
       }
     }
   }
 }
+.a-contact {
+  color: white;
+  text-decoration: none;
+}
+.abo {
+  font-size: 12px!important;
+  font-weight: bold;
+  color: #ffffff!important;
+  line-height: 1.5!important;
+}
+
+
+.h1-presentation {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 20px;
+  width: 1300px;
+}
+
+
+.title-presentation {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 20px;
+  width: 1330px;
+}
+
+.bluespan {
+  color: #3773ea;
+  font-weight: 800;
+}
 
 body {
-  h1 {
-    text-align: center;
-    font-size: 25px;
-  }
+
+  overflow: hidden;
 
   video {
     height: 100%;
@@ -80,6 +291,347 @@ body {
     top: 0;
     transform: none;
     width: 100%;
+  }
+}
+
+#presentation {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#project {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+
+  .project-details {
+    text-align: left;
+
+    h1 {
+      margin-bottom: 1rem;
+      text-align: left;
+      margin-left: 100px;
+      font-size: 2rem;
+      color: #3773ea;
+      font-weight: 900;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      margin-top: 40px; 
+      line-height: 1.5;
+      font-weight: 900;
+    }
+  }
+}
+
+.price-card {
+  border-radius: 20px;
+  border: 2px solid #84b4de;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  margin-left: 40px;
+  transition: transform 0.3s ease-in-out; 
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #989898;
+  }
+
+  .h2-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6095ff;
+  }
+}
+
+.price-card-header {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.price-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.price-card-description {
+  font-size: 14px;
+  color: #989898;
+}
+
+.price-card-body {
+  margin-bottom: 20px;
+}
+
+.price-card-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline; 
+  gap: 0.5rem; 
+}
+
+.image-map {
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #092357;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.price-card-features {
+  list-style: none; 
+
+  li {
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem; 
+
+    img {
+      width: 1rem; 
+    }
+  }
+}
+
+.price-card-features li {
+  margin-bottom: 10px;
+}
+
+.price-card-button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 9px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0 0 20px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #0056b3;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+
+#news {
+  height: 100vh;
+  color: white;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .pricing-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    font-family: 'Gilroy-Medium', sans-serif;
+
+    .pricing-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+      margin: 2rem;
+      padding: 2rem;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #fff;
+      color: #000;
+
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: #ffffff;
+      }
+
+      p {
+        text-align: center;
+        color: white;
+      }
+    }
+  }
+}
+
+#team {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #e1e1e1;
+  }
+
+  .team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+      margin: 3.5rem;
+
+      img {
+        width: 270px;
+        height: auto;
+        transition: all 0.3s ease-in-out;
+        border: 2px solid #092357;
+        border-radius: 10px;
+
+      }
+
+      img:hover {
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+      }
+
+      p {
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#accueil {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.h1t {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #e3e2e2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#contact {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 15rem;
+    margin-top: 30px;
+  }
+
+  .contact-info {
+    flex: 1;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #e1e1e1;
+  }
+
+  .contact-info {
+    margin-top: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: right;
+
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+
+      label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      input, textarea {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 440px;
+      }
+
+      textarea {
+        height: 150px;
+      }
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #0056b3;
+        transition: all 0.3s ease-in-out;
+      }
+    }
   }
 }
 </style>

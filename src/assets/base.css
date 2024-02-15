@@ -58,6 +58,11 @@
   font-weight: normal;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0 !important;
   min-height: 100vh;
@@ -82,4 +87,11 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/src/assets/degrade.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+  padding: 0;
 }
