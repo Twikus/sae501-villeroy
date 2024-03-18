@@ -52,6 +52,9 @@ const submitForm = () => {
           <a href="#project" @click.prevent="smoothScrollTo('#project', 1000)">PROJET</a>
         </li>
         <li>
+          <a href="#project" @click.prevent="smoothScrollTo('#process', 1000)">PROCÉDÉ</a>
+        </li>
+        <li>
           <a href="#team" @click.prevent="smoothScrollTo('#team', 1000)">ÉQUIPE</a>
         </li>
         <li>
@@ -86,7 +89,16 @@ const submitForm = () => {
             </h1>
       </section>
       <section id="project">
-        
+        <div class="project-details">
+          <h1>Projet :</h1>
+        </div>
+        <iframe class="three" src="https://sae501-product.axelduquelzar.fr/"></iframe>
+      </section>
+      <section id="process">
+        <h1>Étapes de <span class="bluespan">conception</span></h1>
+        <div class="project-details">
+          <p>Notre procédé est simple et efficace. Nous nous déplaçons sur le lieu de l'entreprise pour réaliser une prise de vue radar des dimensions 3D. Nous modélisons ensuite l'entreprise en 3D et nous installons le projet sur le site de l'entreprise. Nous livrons également des consignes pour l'utilisation du projet.</p>
+        </div>
       </section>
       <section id="team">
         <h1>Membres de l'Équipe</h1>
@@ -264,6 +276,16 @@ header {
   width: 1300px;
 }
 
+.h1-project {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 20px;
+  width: 1330px;
+}
+
 
 .title-presentation {
   font-size: 2rem;
@@ -312,17 +334,14 @@ body {
   padding: 2rem;
   color: white;
 
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #e1e1e1;
+  }
+
   .project-details {
     text-align: left;
-
-    h1 {
-      margin-bottom: 1rem;
-      text-align: left;
-      margin-left: 100px;
-      font-size: 2rem;
-      color: #3773ea;
-      font-weight: 900;
-    }
 
     p {
       margin-bottom: 1rem;
@@ -358,6 +377,33 @@ body {
     font-size: 28px;
     font-weight: bold;
     color: #6095ff;
+  }
+}
+
+#process {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #e1e1e1;
+  }
+
+  .project-details {
+    text-align: left;
+
+    p {
+      margin-bottom: 1rem;
+      margin-top: 40px; 
+      margin-left: 40px;
+      line-height: 1.5;
+      font-weight: 900;
+    }
   }
 }
 
@@ -506,6 +552,11 @@ body {
       align-items: center;
       width: 200px;
       margin: 3.5rem;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
 
       img {
         width: 270px;
@@ -514,11 +565,6 @@ body {
         border: 2px solid #092357;
         border-radius: 10px;
 
-      }
-
-      img:hover {
-        transform: scale(1.1);
-        transition: all 0.3s ease-in-out;
       }
 
       p {
@@ -633,5 +679,17 @@ body {
       }
     }
   }
+}
+
+.three {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 2px solid #092357;
+  transition: all 0.3s ease-in-out;
 }
 </style>
