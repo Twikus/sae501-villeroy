@@ -48,4 +48,34 @@
   color: #ffffff;
   background-color: #3773ea;
 }
+
+/* Pour les écrans de taille moyenne (tablette, 768px et plus) */
+@media (min-width: 768px) {
+  .h1-presentation, .intro-text {
+    font-size: 20px;
+    width: 1300px;
+    padding: 20px;   
+  }
+
+  .kickstarter-link {
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+}
+
+/* Pour les petits écrans (mobile, moins de 768px) */
+@media (max-width: 767px) {
+  .h1-presentation, .intro-text {
+    font-size: 16px;
+    width: auto;
+    padding: 10px;
+    margin-top: 30px;
+  }
+
+  .kickstarter-link {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+}
+
 </style>
