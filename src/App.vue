@@ -99,9 +99,42 @@ const submitForm = () => {
         <iframe class="three" src="https://sae501-product.axelduquelzar.fr/"></iframe>
       </section>
       <section id="process">
-        <h1>Étapes de <span class="bluespan">conception</span></h1>
+        <h1>Étapes de <span class="bluespan">conception</span></h1> <br>
         <div class="project-details">
-          <p>Notre procédé est simple et efficace. Nous nous déplaçons sur le lieu de l'entreprise pour réaliser une prise de vue radar des dimensions 3D. Nous modélisons ensuite l'entreprise en 3D et nous installons le projet sur le site de l'entreprise. Nous livrons également des consignes pour l'utilisation du projet.</p>
+
+          <h2 class="process-h2"><span class="bluespan">Étape 1 : </span>La découverte du sujet</h2> <br>
+          <p>Notre groupe constitué, nous avons eu la surprise de prendre connaissance de notre sujet : la modélisation 3D des locaux d'une entreprise.</p>
+          <p>En premier lieu nous avons donc pris le temps de nous renseigner sur ce qui existait à ce sujet pour nous faire rapidement un premier benchmark.</p>
+          <p>Pléthore de modélisation 3D de villes, quartiers et différents bâtiments étaient à portée de mains, là à nous attendre pour nous inspirer.</p>
+          <p><a href="https://sae501-product.axelduquelzar.fr" class="ref-poc">Exemple de modélisation 3D</a></p> <br>
+      
+          <h2 class="process-h2"><span class="bluespan">Étape 2 : </span> Mise en place technique et répartition des tâches</h2> <br>
+          <p>L'important était à ce moment de bien décomposer les tâches pour nous les répartir. Et pour cela un choix s'imposait quant à l'exécution du projet : les technologies.</p>
+          <p>De notre côté nous sommes partis sur les outils les plus communs et bien documentés disponibles : modélisation à la main sur Blender et l'intégration de la 3D dans le web avec du ThreeJS.</p>
+          <p>Et quant à notre attribution des missions :</p>
+          <ul>
+            <li>Antoine s'occupera de la modélisation 3D</li>
+            <li>Axel gèrera la mise en place du projet dans une scène ThreeJS et lui donnera vie</li>
+            <li>Camel préparera le site de rendu avec un design modern et attirant</li>
+            <li>Paco fera les différents textes, oraux et créations de contenus du projet.</li>
+          </ul> <br>
+          <p>Evidemment, tout le monde travail en commun avec un retour constant des autres.</p> <br>
+      
+          <h2 class="process-h2"><span class="bluespan">Étape 3 : </span> Les premiers pas</h2> <br>
+          <p>Côté 3D Antoine a réalisé un premier jet en 3D du bâtiment principale des locaux de notre entreprise. Un modèle simple et non texturé mais au plus proche du réel pour avoir une base de travail.</p>
+          <p>Axel à mis en place un scène ThreeJS fonctionnel en prenant un model 3D d'exemple mais qui permet de se faire la main. Le tout est fonctionnel et n'attendra plus que la modélisation finale lui donner vie !</p>
+          <p>Camel et Paco construisent le site de rendu ainsi que son contenu. Cela comprends notamment l'élaboration d'un pitch deck dans lequel on se projette à créer un modèle économique et une communication externe crédible lors d'une demande de financement auprès d'investisseurs fictifs.</p> <br>
+
+          <h2 class="process-h2"><span class="bluespan">Étape 4 : </span> Réalisation finale</h2> <br>
+          <p>Nouvelle étape pour Antoine qui ajoute désormais tout un background autour du bâtiment. L'idée est de reproduire l'environnement réel autour de son bâtiment 3D. Route, champs, forêt, véhicules. Tout y passe pour rendre la mise en scène crédible et vivante !</p>
+          <p>Au tour d'Axel de prendre en main la première version du modèle d'Antoine et de l'intégrer dans ThreeJS. Il ajoute des mouvement de caméra, des éléments visuels et des interactions légères. On approche de la version finale de notre POC tel qu'on l'avait imaginé au départ.</p>
+          <p>Camel et Paco réalise cette fois une page kickstarter <a href="https://fr.tipeee.com/seeit/">Tipee</a> pour simuler une recherche de financement auprès du public cette fois-ci. Nouveau modèle économique, création de paliers et de contreparties pertinentes pour donner une fois de plus de corps au projet.</p> <br>
+                
+
+          <h2 class="process-h2"><span class="bluespan">Étape 5 : </span> Le rendu</h2> <br>
+          <p>Les efforts cumulés de chacun se concrétisent dans la réalisation de ce site de rendu et du modèle 3D finale qui se trouve ici. Nos différents objectifs individuels ont étés atteint sans trop d'encombres. De nombreux ajustements, changement d'idées et micro adaptions ont eu lieu tout le long du processus pour répondre au mieux à notre sujet.</p>
+          <p>Notre travail se conclut sur ce rendu final qui constitue selon nous une très bonne preuve de concept pour la modélisation 3D d'une entreprise.</p>
+
         </div>
       </section>
       <section id="team">
@@ -261,6 +294,7 @@ header {
     }
   }
 }
+
 .a-contact {
   color: white;
   text-decoration: none;
@@ -362,8 +396,18 @@ body {
     p {
       margin-bottom: 1rem;
       margin-top: 40px; 
+      margin-left: 40px;
       line-height: 1.5;
       font-weight: 900;
+    }
+
+    a {
+      color: #3773ea;
+      text-decoration: none;
+
+      &:hover {
+        color: #ffffff;
+      }
     }
   }
 }
@@ -397,12 +441,27 @@ body {
 }
 
 #process {
-  height: 100vh;
+  height: 250vh;
   color: white;
+  margin-top: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  ul {
+    list-style-type: none;
+    margin-left: 70px;
+  }
+
+  a {
+    color: #5679be;
+    text-decoration: underline;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
 
   h1 {
     font-size: 3rem;
@@ -415,8 +474,9 @@ body {
 
     p {
       margin-bottom: 1rem;
-      margin-top: 40px; 
-      margin-left: 40px;
+      margin-top: 5px; 
+      margin-left: 60px;
+      margin-right: 50px;
       line-height: 1.5;
       font-weight: 900;
     }
@@ -449,6 +509,13 @@ body {
   justify-content: flex-start;
   align-items: baseline; 
   gap: 0.5rem; 
+}
+
+.process-h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #e1e1e1;
+  margin-left: 40px;
 }
 
 .image-map {
@@ -780,9 +847,22 @@ body {
   }
 
   #process {
+    height: 450vh;
+
     h1 {
       font-size: 2rem;
       text-align: center;
+    }
+
+    .project-details {
+      flex-direction: column;
+      gap: 1rem;
+
+      .process-h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 1.5rem;
+      }
     }
 
   }
