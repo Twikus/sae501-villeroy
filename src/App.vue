@@ -708,4 +708,143 @@ body {
   border: 2px solid #092357;
   transition: all 0.3s ease-in-out;
 }
+
+/* Pour les écrans de taille moyenne (tablette, 768px et plus) */
+@media (min-width: 768px) {
+  header nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .h1-presentation, .h1-project, .title-presentation {
+    font-size: 20px;
+    width: 1300px;
+    padding: 20px;
+  }
+
+  .price-card {
+    width: 300px;
+  }
+
+  .image-map {
+    width: 400px;
+  }
+
+  form input, form textarea {
+    width: 440px;
+  }
+
+  .contact-container {
+    flex-direction: row;
+    gap: 15rem;
+  }
+
+  .three {
+    width: 100%;
+    height: 100%;
+  }
+
+  .h1t {
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .h1-presentation, .h1-project, .title-presentation {
+    font-size: 16px;
+    width: auto;
+    padding: 10px;
+  }
+
+  .image-map {
+    width: 100%;
+  }
+
+  form input, form textarea {
+    width: auto;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .three {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .h1t {
+    text-align: center;
+  }
+
+  #process {
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+  }
+
+  #team {
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .team-members {
+      flex-direction: column;
+      gap: 1rem;
+
+      .team-member {
+        width: 100%;
+        margin: 0;
+      }
+    }
+    margin-bottom: 100px;
+  }
+
+  .price-card {
+    width: 80%;
+    margin: 20px 0;
+  }
+
+  #contact {
+    h1 {
+      text-align: center;
+      margin-top: 60vh;
+    }
+
+    .contact-container {
+      flex-direction: column;
+      gap: 1rem;
+
+      .contact-info {
+        text-align: center;
+      }
+
+      form {
+        width: 100%;
+        align-items: center;
+      }
+    }
+  }
+  header nav {
+    padding: 0.5rem 0; 
+    width: 109%;
+  }
+  
+  header nav ul li {
+    margin: 0.25rem 0;
+  }
+  
+  header nav ul li a {
+    font-size: 10px; 
+    margin: 0 0.25rem; 
+  }
+}
+
+
 </style>
