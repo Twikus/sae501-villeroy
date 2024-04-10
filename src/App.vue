@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import Kickstarter from './views/Kickstarter.vue';
 
 const smoothScroll = (target, duration) => {
   const targetElement = document.querySelector(target);
@@ -56,6 +57,9 @@ const submitForm = () => {
         </li>
         <li>
           <a href="#team" @click.prevent="smoothScrollTo('#team', 1000)">ÉQUIPE</a>
+        </li>
+        <li>
+          <a href="#kickstarter" @click.prevent="smoothScrollTo('#kickstarter', 1000)">KICKSTARTER</a>
         </li>
         <li>
           <a href="#news" @click.prevent="smoothScrollTo('#news', 1000)">OFFRES</a>
@@ -120,6 +124,9 @@ const submitForm = () => {
             <p>Axel Duquelzar <br> <span class="bluespan">Développeur </span>Full Stack</p>
           </div>
         </div>
+      </section>
+      <section id="kickstarter">
+        <Kickstarter />
       </section>
       <section id="news">
         <div class="pricing-cards">
@@ -314,6 +321,15 @@ body {
     transform: none;
     width: 100%;
   }
+}
+
+#kickstarter {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #presentation {
