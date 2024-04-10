@@ -97,27 +97,27 @@ const submitForm = () => {
           <h1>Projet :</h1>
         </div>
         <iframe class="three" src="https://sae501-product.axelduquelzar.fr/"></iframe>
+        <a href="https://sae501-product.axelduquelzar.fr/">Ouvrir le projet dans un autre onglet</a>
       </section>
       <section id="process">
         <h1>Étapes de <span class="bluespan">conception</span></h1> <br>
         <div class="project-details">
-
           <h2 class="process-h2"><span class="bluespan">Étape 1 : </span>La découverte du sujet</h2> <br>
           <p>Notre groupe constitué, nous avons eu la surprise de prendre connaissance de notre sujet : la modélisation 3D des locaux d'une entreprise.</p>
           <p>En premier lieu nous avons donc pris le temps de nous renseigner sur ce qui existait à ce sujet pour nous faire rapidement un premier benchmark.</p>
           <p>Pléthore de modélisation 3D de villes, quartiers et différents bâtiments étaient à portée de mains, là à nous attendre pour nous inspirer.</p>
-          <p><a href="https://sae501-product.axelduquelzar.fr" class="ref-poc">Exemple de modélisation 3D</a></p> <br>
+          <p><a href="https://windland-neotix.vercel.app/" class="ref-poc">Exemple de modélisation 3D</a></p> <br>
       
           <h2 class="process-h2"><span class="bluespan">Étape 2 : </span> Mise en place technique et répartition des tâches</h2> <br>
           <p>L'important était à ce moment de bien décomposer les tâches pour nous les répartir. Et pour cela un choix s'imposait quant à l'exécution du projet : les technologies.</p>
           <p>De notre côté nous sommes partis sur les outils les plus communs et bien documentés disponibles : modélisation à la main sur Blender et l'intégration de la 3D dans le web avec du ThreeJS.</p>
           <p>Et quant à notre attribution des missions :</p>
-          <ul>
+          <ul> <br>
             <li>Antoine s'occupera de la modélisation 3D</li>
             <li>Axel gèrera la mise en place du projet dans une scène ThreeJS et lui donnera vie</li>
             <li>Camel préparera le site de rendu avec un design modern et attirant</li>
             <li>Paco fera les différents textes, oraux et créations de contenus du projet.</li>
-          </ul> <br>
+          </ul> <br> <br>
           <p>Evidemment, tout le monde travail en commun avec un retour constant des autres.</p> <br>
       
           <h2 class="process-h2"><span class="bluespan">Étape 3 : </span> Les premiers pas</h2> <br>
@@ -344,7 +344,14 @@ header {
 }
 
 body {
+  a {
+    color: #3773ea;
+    text-decoration: none;
 
+    &:hover {
+      color: #ffffff;
+    }
+  }
   overflow: hidden;
 
   video {
@@ -391,15 +398,6 @@ body {
   }
 
   .project-details {
-    text-align: left;
-
-    p {
-      margin-bottom: 1rem;
-      margin-top: 40px; 
-      margin-left: 40px;
-      line-height: 1.5;
-      font-weight: 900;
-    }
 
     a {
       color: #3773ea;
@@ -449,9 +447,15 @@ body {
   align-items: center;
   flex-direction: column;
 
+  p {
+    text-align: center;
+  }
+
   ul {
     list-style-type: none;
     margin-left: 70px;
+    text-align: center;
+
   }
 
   a {
@@ -516,6 +520,7 @@ body {
   font-weight: 600;
   color: #e1e1e1;
   margin-left: 40px;
+  text-align: center;
 }
 
 .image-map {
@@ -848,6 +853,8 @@ body {
 
   #process {
     height: 450vh;
+    margin-bottom: 200px;
+    text-align: center;
 
     h1 {
       font-size: 2rem;
@@ -857,6 +864,7 @@ body {
     .project-details {
       flex-direction: column;
       gap: 1rem;
+      text-align: center;
 
       .process-h2 {
         margin: 0;
